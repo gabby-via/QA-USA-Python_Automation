@@ -12,7 +12,7 @@ class TestUrbanRoutes:
             print("Connected to the Urban Routes server")
         else:
             print("Cannot connect to Urban Routes. Check the server is on and still running")
-
+            exit () #exit the program if the server cannot connect
 
     def test_set_route(self):
      # Add in S8
@@ -55,12 +55,12 @@ class TestUrbanRoutes:
 
     def test_order_2_ice_creams (self):
      # Add in S8
-        print ("Function created for set route")
-        pass #placeholder for future implementation
+        i = 0
         for i in range(2):
             #task5
             # Add in S8
-            pass
+        print("Function created for set route")
+        pass #placeholder for future implementation
 
 
     def test_car_search_model_appears (self):
