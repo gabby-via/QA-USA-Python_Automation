@@ -52,15 +52,13 @@ class TestUrbanRoutes:
         pass #placeholder for future implementation
 
 
-
-    def test_order_2_ice_creams (self):
-     # Add in S8
-        i = 0
-        for i in range(2):
-            #task5
+    def test_order_2_ice_creams(self):
+        # Add in S8
+        iterations = 2  # Declare a variable for the loop count
+        for i in range(iterations):
             # Add in S8
-        print("Function created for set route")
-        pass #placeholder for future implementation
+            print("Function created for set route")
+            pass  # Placeholder for future implementation
 
 
     def test_car_search_model_appears (self):
