@@ -14,7 +14,7 @@ class UrbanRoutesPage:
     CUSTOM_OPTION_LOCATOR = (By.XPATH, '//div[text()="Custom"]')
     TAXI_ICON_LOCATOR = (By.XPATH, '//img[@src="/static/media/taxi-active.b0be3054.svg"]')
     CALL_TAXI_LOCATOR = (By.CLASS_NAME, 'button[class="button round"]')
-    SUPPORTIVE_ICON_LOCATOR = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]/div[5]/div[1]/img')
+    SUPPORTIVE_ICON_LOCATOR = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]/div[5]')
     PHONE_NUMBER_BOX = (By.XPATH, '//div[@class="np-text"]')
     PHONE_NUMBER = (By.ID, "phone")
     NEXT_BUTTON_LOCATOR = (By.CLASS_NAME, 'button[class="button full"]')
@@ -42,6 +42,12 @@ class UrbanRoutesPage:
     def enter_to_location (self, to_text):
         self.driver.find_element(*self.ADDRESS_TO).send_keys(to_text)
 
+    def get_from_location (self):
+        return self.driver.find_element(*self.ADDRESS_FROM).get_attribute("value")
+
+    def get_to_location (self):
+        return self.driver.find_element(*self.ADDRESS_TO).get_attribute("value")
+
     def click_custom_option (self):
         self.driver.find_element(*self.CUSTOM_OPTION_LOCATOR).click()
 
@@ -54,17 +60,24 @@ class UrbanRoutesPage:
     def click_supportive_option (self):
         self.driver.find_element(*self.SUPPORTIVE_ICON_LOCATOR).click()
 
+    def get_supportive_option (self):
+        return self.driver.find_element(*self.SUPPORTIVE_ICON_LOCATOR).get_attribute("class")
+
     def click_phone_number_option (self):
         self.driver.find_element(*self.PHONE_NUMBER_BOX).click()
 
     def enter_phone_number (self, number):
         self.driver.find_element(*self.PHONE_NUMBER).send_keys(number)
 
+    def get_phone_number (self):
+        return self.driver.find_element(*self.PHONE_NUMBER).get_attribute("value")
+
     def click_next_button (self):
         self.driver.find_element(*self.NEXT_BUTTON_LOCATOR).click()
 
     def sms_code (self, sms):
         self.driver.find_element(*self.SMS_CODE_LOCATOR).send_keys(sms)
+
 
     def click_confirm_button (self):
         self.driver.find_element(*self.CONFIRM_ICON_LOCATOR).click()
@@ -79,6 +92,12 @@ class UrbanRoutesPage:
         self.driver.find_element(*self.CARD_NUMBER).send_keys(card_number)
         self.driver.find_element(*self.CARD_CODE).send_keys(verification_id)
 
+    def get_card_number (self):
+        return self.driver.find_element(*self.CARD_NUMBER).get_attribute("value")
+
+    def get_card_code (self):
+        return self.driver.find_element(*self.CARD_CODE).get_attribute("value")
+
     def click_link_button (self):
         self.driver.find_element(*self.LINK_BUTTON_LOCATOR).click()
 
@@ -88,9 +107,14 @@ class UrbanRoutesPage:
     def message_to_driver (self, message):
         self.driver.find_element(*self.MESSAGE_FOR_DRIVER).send_keys(message)
 
+    def get_message_to_driver (self):
+        return self.driver.find_element(*self.MESSAGE_FOR_DRIVER).get_attribute("value")
 
     def select_blanket_and_handkerchief (self):
         self.driver.find_element(*self.BLANKET_AND_HANDKERCHIEF_LOCATOR).click()
+
+    def get_blanket_and_handkerchief (self):
+        return self.driver.find_element(*self.BLANKET_AND_HANDKERCHIEF_LOCATOR).get_attribute("class")
 
     def select_ice_cream (self):
         ice_cream = 0  # Declare a variable for the loop count
@@ -99,5 +123,12 @@ class UrbanRoutesPage:
             ice_cream = ice_cream + 1
             print(f'Select {ice_cream} ice creams')
 
+    def get_ice_cream (self):
+        return self.driver.find_element(*self.ICE_CREAM_LOCATOR).get_attribute("class")
+
+
     def click_order_button (self):
         self.driver.find_element(*self.ORDER_LOCATOR).click()
+
+    def get_order_button (self):
+        return self.driver.find_element(*self.ORDER_LOCATOR).get_attribute("class")
