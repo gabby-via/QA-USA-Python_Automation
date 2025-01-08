@@ -148,7 +148,9 @@ class TestUrbanRoutes:
         urban_routes_page.message_to_driver(data.MESSAGE_FOR_DRIVER)
         urban_routes_page.select_blanket_and_handkerchief()
         time.sleep(2)
+        status = urban_routes_page.get_switches()
         assert urban_routes_page.get_blanket_and_handkerchief() == "switch"
+        assert urban_routes_page.get_switches()
 
     def test_order_2_ice_creams(self):
         self.driver.get(data.URBAN_ROUTES_URL)
@@ -177,6 +179,7 @@ class TestUrbanRoutes:
         urban_routes_page.select_ice_cream()
         time.sleep(2)
         assert urban_routes_page.get_ice_cream() == "counter-plus disabled"
+        assert urban_routes_page.ice_cream_value() == 2
 
     def test_car_search_model_appears (self):
         self.driver.get(data.URBAN_ROUTES_URL)
@@ -206,6 +209,7 @@ class TestUrbanRoutes:
         urban_routes_page.click_order_button()
         time.sleep(2)
         assert urban_routes_page.get_order_button() == "smart-button"
+        assert urban_routes_page.order_pop_up(), "Order popup was not displayed after clicking the order button"
 
     @classmethod
     def teardown_class(cls):
